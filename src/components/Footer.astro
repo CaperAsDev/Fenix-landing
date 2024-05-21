@@ -1,7 +1,47 @@
 ---
-
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
+import Logo from '@/assets/fenix_logo.jpg'
 ---
 
-<footer>
-  Mi Footer
+<footer class="p-5 w-full h-fit sm:flex sm:gap-5" >
+  <div>
+    <Image 
+      src={Logo}
+      alt="Manufacturas Fennixx logo"
+      class="object-contain w-full max-w-xs h-auto"
+    />
+    <div class="grid place-items-center mt-3">
+      <h3 class="text-xl font-bold text-amber-500 border-t-2 sm:border-t-0 border-amber-500 py-2 sm:text-center" >Manufacturas Fennixx</h3>
+      <p class="text-sm">Bogotá, Colombia</p>
+    </div>
+  </div>
+
+  <div class=" border-2 border-amber-500 p-2 my-5 sm:my-0 sm:border-0 sm:border-l-2">
+    <h4 class="mt-2  text-center font-medium">Fabricantes de Fundas protectoras para maquinas moviles:</h4>
+    <ul class="list-disc p-5 sm:p-0 sm:mt-5 sm:ml-5 text-sm">
+      <li>Lectores</li>
+      <li>Tablet PC</li>
+      <li>Datafonos</li>
+      <li>Terminales PDA</li>
+      <li>Impresoras portatiles</li>
+    </ul>
+  </div>
+
+  <div class="border-l-2 pl-2 border-amber-500 sm:grid sm:place-items-center">
+    <p class="text-sm sm:text-end ">Contactenos para saber mas de nuestros servicios y cotizar productos a la medida de sus necesidades</p>
+    <div class="mt-5">
+      <p class="text-cyan-500 font-medium">Telefonos</p>
+      <div class="flex items-center gap-5 mt-3">
+        <Icon 
+          name="tabler:brand-whatsapp"
+          class="w-10 h-10 text-green-600"
+        />
+        <div>
+          <p>+57 (350) 809 5143</p>
+          <p>+57 (312) 597 0297</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>

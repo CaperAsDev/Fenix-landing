@@ -1,7 +1,25 @@
 ---
-
+import { Image } from "astro:assets"
+import  {Icon}  from 'astro-icon/components'
 ---
 
-<header>
-  Mi header
+<header class="flex justify-around flex-wrap sm:justify-between sm:px-8 p-4 h-fit">
+  <div class="grid font-serif italic text-secondary">
+    <p data-brand class="text-sm/3 font-light grid items-end ">MANUFACTURAS</p>
+    <p data-brand class="text-4xl font-medium">FENNIXX</p>
+  </div>
+  <section class="hidden sm:block">
+    <div class="flex items-center gap-2" >
+      <Icon name="tabler:brand-whatsapp" width={40} height={40} class="text-green-600" />
+      <div>
+        <p class="text-sm text-accent" >Contactenos</p>
+        <p class='font-medium' >+57 (350) 809 5143</p>
+      </div>
+    </div>
+  </section>
 </header>
+<style>
+  [data-brand] {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+</style>
