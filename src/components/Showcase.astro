@@ -1,0 +1,38 @@
+---
+import Article from '@/components/Article.astro'
+
+---
+
+<section>
+  <header class="bg-white p-5">
+    <h2 class="text-amber-500 font-bold text-xl text-center">NOSOTROS</h2>
+  </header>
+  <div class="grid gap-5">
+    <Article imagePath='/src/assets/images/show-1.jpg'>
+      <div class="max-w-lg grid gap-5" slot='before'>
+        <p>Nos dedicamos al <strong class="text-amber-500">Diseño, Manufactura y Venta de Fundas protectoras</strong> para todo tipo de dispositivos móviles, incluyendo terminales PDA, lectores, tablets PC, datáfonos, impresoras portátiles y otros equipos similares.</p>
+        <p>Con años de experiencia en el sector, producimos los mejores protectores del mercado, combinando tradición y tecnología para ofrecer productos de máxima <strong class="text-amber-500">calidad y durabilidad</strong>.</p>
+      </div>
+    </Article>
+    
+    <Article imagePath='/src/assets/images/show-3.jpg' bgColor='ligth'>
+      <div class="max-w-lg grid gap-5" slot='after'>
+        <p>Nuestras fundas están confeccionadas con materiales de alta calidad que aseguran la integridad de los dispositivos que protegen. Cada funda es <strong class="text-amber-600">diseñada meticulosamente</strong> para proporcionar una protección robusta contra golpes, caídas y el desgaste diario.</p>
+        <p>La fabricación de nuestras fundas es totalmente nacional, realizada por personas con una amplia <strong class="text-amber-600">experiencia en confección</strong>. Este enfoque no solo garantiza la excelencia en cada producto, sino que también apoya el talento local y la economía nacional.</p>
+    </div>
+
+    </Article>
+    <Article imagePath='/src/assets/images/show-5.jpg'>
+      <div class="max-w-lg grid gap-5" slot="before">
+        <p>En un mundo donde la tecnología móvil es esencial para la productividad y la comunicación, proteger estos dispositivos es crucial. Una funda de calidad no solo <strong class="text-amber-500">prolonga la vida útil</strong> de tu equipo, sino que también mejora su funcionalidad y apariencia.</p>
+        <p>Además, nuestras fundas están diseñadas no solo para proteger, sino también para proporcionar <strong class="text-amber-500">funcionalidad y comodidad</strong>. Cada producto es diseñado teniendo en cuenta las necesidades específicas de los usuarios, ofreciendo características como  correas ajustables y accesibilidad rápida a los dispositivos.</p>
+      </div>
+      </Article>
+    <Article imagePath='/src/assets/images/show-7.jpg' bgColor='ligth'>
+      <div class="max-w-lg grid gap-5" slot="after">
+        <p>Al elegir nuestras fundas, estás invirtiendo en la protección y el mantenimiento de tus dispositivos, asegurando que estén siempre en óptimas condiciones para soportar las exigencias de tu trabajo diario. No comprometas la seguridad de tus herramientas de trabajo, confía en nosotros para ofrecerte <strong class="text-amber-600">la mejor protección disponible en el mercado</strong>.</p>
+        <p>En nuestra empresa, la satisfacción del cliente es nuestra máxima prioridad. Nos comprometemos a ofrecer soluciones de protección que superen tus expectativas, con un enfoque en la <strong class="text-amber-600">innovación, la calidad y la excelencia</strong> en el servicio. Confía en nosotros para mantener tus dispositivos seguros y en óptimas condiciones.</p>
+      </div>
+    </Article>
+  </div>
+</section>

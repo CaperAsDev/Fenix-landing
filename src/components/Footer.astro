@@ -1,15 +1,16 @@
 ---
 import { Image } from 'astro:assets'
 import { Icon } from 'astro-icon/components'
-import Logo from '@/assets/fenix_logo.jpg'
+import FenixLogo from '@/assets/logos/fenix_logo.png'
 ---
 
 <footer class="p-5 w-full h-fit sm:flex sm:gap-5" >
   <div>
     <Image 
-      src={Logo}
+      src={FenixLogo}
       alt="Manufacturas Fennixx logo"
-      class="object-contain w-full max-w-xs h-auto"
+      width={420}
+      class="object-contain w-full max-w-xs h-auto bg-white"
     />
     <div class="grid place-items-center mt-3">
       <h3 class="text-xl font-bold text-amber-500 border-t-2 sm:border-t-0 border-amber-500 py-2 sm:text-center" >Manufacturas Fennixx</h3>

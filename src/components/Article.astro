@@ -1,0 +1,24 @@
+---
+import type { ImageMetadata } from "astro"
+import {Image} from "astro:assets"
+
+interface Props {
+  imagePath: string
+  bgColor?: 'ligth'
+}
+const { imagePath, bgColor } = Astro.props
+
+const images = import.meta.glob<{default: ImageMetadata}>('/src/assets/images/show-*.jpg')
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/images/show-*.jpg"`);
+
+---
+<article class={`flex flex-wrap even:flex-wrap-reverse justify-evenly items-center p-5 sm:p-10 lg:p-15 xl:p-20 text-center gap-5  ${bgColor ? 'bg-amber-100 text-primary': ''}`}>
+  <slot name="before"/>
+  <Image
+    src={images[imagePath]()}
+    alt="Muestra de producto"
+    width={420}
+    class="object-contain w-full max-w-sm h-auto border-2 border-amber-500 rounded-md overflow-hidden"
+  />
+  <slot name="after"/>
+</article>

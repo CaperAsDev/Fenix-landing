@@ -7,5 +7,10 @@ import icon from "astro-icon";
 export default defineConfig({
   integrations: [
     tailwind(),
-    icon()]
+    icon({
+      iconDir: "src/assets/icons",
+    })],
+    build: {
+      assets: 'assets'
+    }
 });

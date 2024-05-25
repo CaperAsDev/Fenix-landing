@@ -1,6 +1,7 @@
 ---
 import Footer from '@/components/Footer.astro';
 import Header from '@/components/Header.astro';
+import WhButton from '@/components/WhButton.astro';
 
 interface Props {
 	title: string;
@@ -23,6 +24,7 @@ const { title } = Astro.props;
 		<Header />
 		<slot />
 		<Footer />
+		<WhButton number='+57 (350) 809 5143'/>
 	</body>
 </html>
 <style is:global>
@@ -30,13 +32,9 @@ const { title } = Astro.props;
 	:root {
 		--color-primary: #272640;
 		--color-secondary: #e7ecf8;
-		--color-accent: #8389d1;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		--color-accent: #eda426;
+		--accent-dark: #b27813;
+	
 	}
 	* {
 		font-family: 'Montserrat';

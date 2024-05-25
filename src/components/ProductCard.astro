@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets'
+import type { ModelObj } from './Products.astro'
+
+interface Props {
+  model: ModelObj
+}
+
+const { model } = Astro.props
+---
+<article class="border-2 border-amber-500 rounded-lg bg-white ">
+  <div class="gallery flex w-64 overflow-x-scroll snap-x">
+    {model.images.map(async(image)=> {
+      const imageData = image.data()
+      // imageData.then((image)=> console.log(image.default))
+      const originalWidth = await imageData.then((image)=> image.default.width)
+      // console.log(originalWidth);
+      
+      return(
+      <div class="min-w-64 h-80 overflow-hidden snap-center p-2">
+        <Image
+        src={imageData}
+        alt={image.name}
+        class="object-contain w-full h-full"
+        widths={[240, 540, 720]}
+        sizes={`
+          (max-width: 360px) 200px, (max-width: 720px) 540px, (max-width: 1440px) 720px, ${originalWidth}px
+          `}
+        />
+      </div>
+    )})}
+  </div>
+  <div class="p-2 grid place-items-center border-t-2 border-amber-500 text-primary">
+    <p class="font-bold">{model.brand}</p>
+    <p >{model.name}</p>
+  </div>
+</article>
+
+<script>
+  import 'viewerjs/dist/viewer.css';
+  import Viewer from 'viewerjs'
+
+  const productsContainer = document.querySelector<HTMLElement>('.Products-container')
+  if(productsContainer){
+    productsContainer.addEventListener('click',(e)=> {
+      if(e.target.nodeName == 'IMG'){
+        const gallery = e.target.closest('.gallery')
+        // console.log(gallery);
+        const viewer = new Viewer(gallery,{
+        url: (img)=>{
+          // console.log(img.src)
+          return img.src
+        },
+        title: false,
+        rotatable: false,
+        scalable: false,
+        })
+        viewer.show()
+      }
+    })
+  }
+</script>

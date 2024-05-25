@@ -1,47 +1,32 @@
 ---
+import type { ImageMetadata } from 'astro'
 import {Image} from 'astro:assets'
 
-const logos = [
-  {
-    name: 'bluebird',
-    height: 500,
-    width: 900,
-  },
-  {
-    name: 'caterpillar',
-    height: 229,
-    width: 1280,
-  },
-  {
-    name: 'honeywell',
-    height: 227,
-    width: 1280,
-  },
-  {
-    name: 'unitech',
-    height: 108,
-    width: 300,
-  },
-  {
-    name: 'zebra',
-    height: 300,
-    width: 916,
-  },
-]
+import brandsImage from '@/assets/images/show-9.jpg'
+
+const logoNames = ['bluebird','caterpillar','honeywell','unitech','zebra','sat','motorola','blackview']
+const logos = import.meta.glob<{default: ImageMetadata}>('@/assets/logos/*.png')
 ---
 <section class="w-full h-fit bg-white" >
   <h3 class="text-2xl text-center text-primary font-semibold p-2 sm:py-4 border-b-2 border-amber-500" >Trabajamos con las marcas referentes en el mundo</h3>
-  <div class="h-fit justify-center gap-5 w-full flex-wrap px-6 py-4 flex sm:px-10" >
-    
-    {logos.map(logo => (
-      <Image
-        src={`/images/${logo.name}.png`}
-        height={logo.height}
-        width={logo.width}
-        alt={logo.name}
+  <div class="flex justify-evenly flex-wrap items-center p-5">
+    <Image
+    src={brandsImage}
+    alt=""
+    width={420}
+    class="object-contain w-full max-w-sm h-auto"
+    />
+    <div class="h-fit justify-center gap-5 w-full max-w-lg flex-wrap px-6 py-4 flex sm:px-10" >
+      
+      {logoNames.map(logo => (
+        <Image
+        src={logos[`/src/assets/logos/${logo}.png`]()}
+        alt={logo}
+        height={60}
         class='object-contain h-10 w-auto'
-      />
-    ))}
+        />
+      ))}
     
   </div>
+</div>
 </section>

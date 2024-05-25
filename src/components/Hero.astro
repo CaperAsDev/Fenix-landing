@@ -1,23 +1,41 @@
 ---
 import { Image } from "astro:assets";
+import HeroImage from '@/assets/images/terminal.jpeg'
+import { Icon } from 'astro-icon/components'
 ---
 
 <section class="relative" >
-  <div class="absolute w-full h-full inset-0 z-10 flex flex-col gap-4 p-4 sm:px-8 justify-evenly items-end">
-    <h2 class="text-3xl font-bold sm:text-4xl">Funtas protectoras</h2>
-    <p class="font-medium text-2xl" >Proteja sus:</p>
-    <ul class="text-end text-xl border-r-2 border-b-2 p-2">
-      <li>Lectores</li>
-      <li>Tablet PC</li>
-      <li>Datafonos</li>
-      <li>Terminales PDA</li>
-      <li>Impresoras portatiles</li>
-    </ul>
+  <div class="absolute w-full h-full inset-0 z-10 flex justify-evenly items-center bg-gradient-to-b from-blue-950/50 to-blue-950/50 via-transparent">
+    <header class="flex h-full flex-col gap-4 p-4 sm:px-8 justify-evenly items-start">
+      <h1 class="text-3xl font-semibold capitalize sm:text-4xl text-amber-500">Funtas protectoras</h1>
+      <p class="font-medium text-2xl" >Para sus:</p>
+      <ul class="text-start text-xl border-l-2 border-b-2 p-2 border-sky-300">
+        <li>Lectores</li>
+        <li>Tablet PC</li>
+        <li>Datafonos</li>
+        <li>Terminales PDA</li>
+        <li>Impresoras portatiles</li>
+      </ul>
+    </header>
+    <div class="hidden md:flex flex-col h-full w-fit justify-evenly text-center">
+      <p class="text-xl p-1 border-b-2 border-sky-300">Nosotros nos encargamos del:</p>
+      <ul class="grid place-items-center font-medium text-xl">
+        <li class="p-1 rounded-xl border-b-2 border-sky-300">Diseño</li>
+        <Icon name="tabler:arrow-badge-down-filled" width={30} height={30} class="text-amber-500"/>
+        <li class="p-1 rounded-xl border-b-2 border-sky-300">Manufactura</li>
+        <Icon name="tabler:arrow-badge-down-filled" width={30} height={30} class="text-amber-500"/>
+        <li class="p-1 rounded-xl border-b-2 border-sky-300">Envio</li>
+      </ul>
+      <a href="https://web.whatsapp.com/send?phone=573508095143" class="text-xl text-green-600 p-2 bg-white rounded-3xl hover:scale-110 focus:scale-110 transition-transform">Contactanos para saber mas</a>
+    </div>
   </div>
   <Image 
-    src="/images/terminal-2.jpeg"
-    alt='Hero image'
-    height=439
-    width=1024
-    class='w-full h-[80vh] object-cover overflow-hidden brightness-50' />
+    src={HeroImage}
+    alt=''
+    class='w-full h-[80vh] object-cover overflow-hidden brightness-75' 
+    widths={[360, 720, 1024, HeroImage.width]}
+    sizes={`
+      (max-width: 360px) 240px, (max-width: 768px) 540px, (max-width: 1024px) 860px, ${HeroImage.width}px
+    `}
+  />
 </section>
