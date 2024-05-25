@@ -10,6 +10,7 @@ export default defineConfig({
     icon({
       iconDir: "src/assets/icons",
     })],
+    base: process.env.SERVER === 'pre-production' ? `/${process.env.REPO}` : '/',
     build: {
       assets: 'assets'
     }
