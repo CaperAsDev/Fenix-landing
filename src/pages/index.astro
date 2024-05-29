@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components'
 import Layout from "@/layouts/Layout.astro";
 import Hero from '@/components/Hero.astro'
 import Brands from '@/components/Brands.astro'
@@ -7,9 +8,22 @@ import Showcase from '@/components/Showcase.astro'
 
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout
+	title="Fennixx"
+	description="Diseño y producción de fundas protectoras para terminales moviles, datafonos, impresoras portatiles y demas, contactanos y te ayudaremos en lo que necesites."
+>
 	<main>
 		<Hero />
+		<section class="grid md:hidden">
+			<p class="text-center font-medium text-amber-500 pt-2 text-lg">Contactenos</p>
+			<div class="flex items-center gap-2 h-full justify-center p-5" >
+				<Icon name="tabler:brand-whatsapp" width={45} height={45} class="text-green-600" />
+				<div class="grid items-center">
+					<p class='font-medium tabular-nums' >+57 (312) 597 0297</p>
+					<p class='font-medium tabular-nums' >+57 (350) 809 5143</p>
+				</div>
+			</div>
+		</section>
 		<Brands />
 		<Products />
 		<Showcase />

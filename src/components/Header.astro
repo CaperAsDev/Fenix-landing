@@ -1,10 +1,10 @@
 ---
-import { Image } from 'astro:assets'
 import  {Icon}  from 'astro-icon/components'
-import Logo from '@/assets/icons/Fennixx_logo.svg'
+import Navbar from '@/components/Navbar.astro';
+
 ---
 
-<header class="flex justify-around flex-wrap sm:justify-between sm:px-8 p-4 h-fit sticky top-0 right-0  z-20  backdrop-blur-sm bg-gradient-to-r from-primary to-primary via-transparent">
+<header class="flex justify-around items-center flex-wrap sm:justify-between sm:px-8 p-4 h-fit sticky top-0 right-0  z-20  backdrop-blur-sm bg-gradient-to-r from-primary to-primary via-transparent">
   <div class="flex">
     <Icon name={'Fennixx_logo'} height={50} width={50} />
     <div class="grid font-serif italic text-secondary">
@@ -12,12 +12,14 @@ import Logo from '@/assets/icons/Fennixx_logo.svg'
       <p data-brand class="text-4xl font-medium">FENNIXX</p>
     </div>
   </div>
-  <section class="hidden sm:block">
+  <Navbar />
+
+  <section class="hidden lg:block">
     <div class="flex items-center gap-2 h-full" >
-      <Icon name="tabler:brand-whatsapp" width={40} height={40} class="text-green-600" />
-      <div>
-        <p class="text-sm text-accent" >Contactenos</p>
-        <p class='font-medium' >+57 (350) 809 5143</p>
+      <Icon name="tabler:brand-whatsapp" width={45} height={45} class="text-green-600" />
+      <div class="grid items-center">
+        <p class='font-medium tabular-nums' >+57 (312) 597 0297</p>
+        <p class='font-medium tabular-nums' >+57 (350) 809 5143</p>
       </div>
     </div>
   </section>
