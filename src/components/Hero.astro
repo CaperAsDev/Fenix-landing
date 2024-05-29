@@ -19,14 +19,14 @@ import { Icon } from 'astro-icon/components'
     </header>
     <div class="hidden md:flex flex-col h-full w-fit justify-evenly text-center">
       <p class="text-xl p-1 border-b-2 border-sky-300">Nosotros nos encargamos del:</p>
-      <ul class="grid place-items-center font-medium text-xl">
-        <li class="p-1 rounded-xl border-b-2 border-sky-300">Diseño</li>
+      <div class="grid place-items-center font-medium text-xl">
+        <span class="p-1 rounded-xl border-b-2 border-sky-300">Diseño</span>
         <Icon name="tabler:arrow-badge-down-filled" width={30} height={30} class="text-amber-500"/>
-        <li class="p-1 rounded-xl border-b-2 border-sky-300">Manufactura</li>
+        <span class="p-1 rounded-xl border-b-2 border-sky-300">Manufactura</span>
         <Icon name="tabler:arrow-badge-down-filled" width={30} height={30} class="text-amber-500"/>
-        <li class="p-1 rounded-xl border-b-2 border-sky-300">Envio</li>
-      </ul>
-      <a href="https://web.whatsapp.com/send?phone=573125970297" class="text-xl text-green-600 p-2 bg-white rounded-3xl hover:scale-110 focus:scale-110 transition-transform">Contactanos para saber mas</a>
+        <span class="p-1 rounded-xl border-b-2 border-sky-300">Envio</span>
+      </div>
+      <a title="Contactanos" href="https://web.whatsapp.com/send?phone=573125970297" class="text-xl text-green-600 p-2 bg-white rounded-3xl hover:scale-110 focus:scale-110 transition-transform">Contactanos para saber mas</a>
     </div>
   </div>
   <Image 
