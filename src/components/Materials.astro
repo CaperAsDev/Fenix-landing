@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets'
+import MaterialImage from '@/assets/images/show-2.jpg'
+---
+
+<section>
+  <header class="bg-accent p-5">
+    <h3 class="text-primary font-bold text-xl text-center">Materiales y produccion</h3>
+  </header>
+  <div class="flex flex-wrap justify-evenly items-center p-5 sm:p-10 lg:p-15 xl:p-20 gap-5 bg-amber-100 text-primary">
+    <Image
+      alt="Muestra de producto y materiales"
+      src={MaterialImage}
+      width={420}
+      class="object-contain w-full max-w-sm h-auto border-2 border-amber-500 rounded-md overflow-hidden"
+    />
+    <div class="grid gap-2 max-w-lg">
+      Nuestras fundas están fabricadas de la siguiente manera:
+      <ol class="list-decimal list-inside">
+        <li><span class="font-semibold">Exterior:</span> fibra sintética</li>
+        <li><span class="font-semibold">Interior:</span> forro plantitex</li>
+        <li><span class="font-semibold">Medio:</span> microporora o proeva</li>
+        <li>Herrajes metálicos</li>
+        <li>Media argollas</li>
+        <li>Mosquetones</li>
+        <li>Trabillas o tensor</li>
+      </ol>
+      <ul class="list-disc list-inside">
+        <li>Dependiendo de la medida que requiera la funda puede ser de 3/4- 1- 1.1/2 pulgadas.</li>
+        <li>Reatas acordes a la medida del  herraje que se requiera.</li>
+        <li>Herrajes plásticos:</li>
+        <li>Chapas-tensores-mosquetones.</li>
+        <li>Reatas: acorde a la medida de los herrajes a utilizar.</li>
+        <li>Largo del cargador 1.8 metros.</li>
+        <li>Broches de cazuela inoxidables.</li>
+      </ul>
+    </div>
+  </div>
+</section>
