@@ -5,15 +5,15 @@ interface Props {
   number: string;
   message?: string;
 }
-const baseUrl = 'https://web.whatsapp.com/send'
+const baseUrl = 'https://wa.me'
 
 const { number, message } = Astro.props
 
 const waNumber = number.replace(/[^\w\s]/gi, '').replace(/ /g, '');
-let url = `${baseUrl}?phone=${waNumber}`;
+let url = `${baseUrl}/${waNumber}`;
 
 if (message) {
-  url += `&text=${encodeURI(message)}`;
+  url += `?text=${encodeURI(message)}`;
 }
 
 ---

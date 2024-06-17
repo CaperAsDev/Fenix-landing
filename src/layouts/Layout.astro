@@ -30,11 +30,12 @@ const { title, description } = Astro.props;
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 	</head>
-	<body>
+	<body class="grid place-items-center">
 		<Header />
 		<slot />
 		<Footer />
 		<WhButton number='+57 (350) 809 5143'/>
+		<small class="mb-2">Made with 💟 by @CaperAsDev</small>
 	</body>
 </html>
 <style is:global>

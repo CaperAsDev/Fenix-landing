@@ -19,7 +19,7 @@ export interface ModelObj {
   images: [Image]
 }
 
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/products/*.{jpg,webp}')
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/products/*.{jpg,webp,jpeg}')
 const imagesArray = Object.entries(images)
 
 const imagesObj = imagesArray.reduce<Array<ImageObj>>(( acc, current )=> {
