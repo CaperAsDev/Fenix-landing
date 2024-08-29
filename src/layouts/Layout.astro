@@ -1,61 +1,69 @@
 ---
-import Footer from '@/components/Footer.astro';
-import Header from '@/components/Header.astro';
-import WhButton from '@/components/WhButton.astro';
-import Seo from '@/components/Seo.astro';
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import WhButton from "@/components/WhButton.astro";
+import Seo from "@/components/Seo.astro";
 
 interface Props {
-	title: string;
-	description: string;
+  title: string;
+  description: string;
 }
 
 const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es" class="bg-primary text-secondary font-montserrat" >
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content={description} />
-		<meta name="author" content="@CaperAsDev" />
+<html lang="es" class="bg-primary text-secondary font-montserrat">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="author" content="@CaperAsDev" />
 
-		<meta property="og:image" content="https://manufacturasfennixx.com/Manufacturas_Fennixx.jpg" />
-		<meta property="og:url" content="https://manufacturasfennixx.com" />
-		<meta property="og:title" content="Diseño, Manufactura y Venta de Fundas protectoras" />
-		<meta property="og:type" content="website" />
-		<meta property="og:description" content="Fundas para todo tipo de dispositivos móviles, incluyendo terminales PDA, lectores, tablets PC, datáfonos, impresoras portátiles y otros equipos similares." />
+    <meta
+      property="og:image"
+      content="https://manufacturasfennixx.com/Manufacturas_Fennixx.jpg"
+    />
+    <meta property="og:url" content="https://manufacturasfennixx.com" />
+    <meta
+      property="og:title"
+      content="Diseño, Manufactura y Venta de Fundas protectoras"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="Fundas para todo tipo de dispositivos móviles, incluyendo terminales PDA, lectores, tablets PC, datáfonos, impresoras portátiles y otros equipos similares."
+    />
 
-		<title>{title}</title>
+    <title>{title}</title>
 
-		<Seo
-			{title}
-			{description}
-		/>
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-	</head>
-	<body class="grid place-items-center">
-		<Header />
-		<slot />
-		<Footer />
-		<WhButton number='+57 (350) 809 5143'/>
-		<small class="mb-2">Made with 💟 by @CaperAsDev</small>
-	</body>
+    <Seo {title} {description} />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  </head>
+  <body class="grid place-items-center">
+    <Header />
+    <slot />
+    <Footer />
+    <WhButton number="+57 (350) 809 5143" />
+    <small class="mb-2">Made with 💟 by @CaperAsDev</small>
+  </body>
 </html>
 <style is:global>
-	@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
-	:root {
-		--color-primary: #272640;
-		--color-secondary: #e7ecf8;
-		--color-accent: #eda426;
-		--accent-dark: #b27813;
-	
-	}
-	* {
-		font-family: 'Montserrat';
-		outline-color: var(--color-accent)
-	}
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+  :root {
+    --color-primary: #272640;
+    --color-secondary: #e7ecf8;
+    --color-accent: #eda426;
+    --accent-dark: #b27813;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  * {
+    font-family: "Montserrat";
+    outline-color: var(--color-accent);
+  }
 </style>
