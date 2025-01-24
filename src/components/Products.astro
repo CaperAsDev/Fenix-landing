@@ -1,75 +1,80 @@
 ---
-import ProductCard from '@/components/ProductCard.astro'
+import ProductCard from "@/components/ProductCard.astro";
 
 interface Image {
   name: string;
-  data: () => Promise<{default: ImageMetadata;}>
+  data: () => Promise<{ default: ImageMetadata }>;
 }
 
 interface ImageObj {
   model: string;
   brand: string;
   number: string;
-  image: Image
+  image: Image;
 }
 
 export interface ModelObj {
   name: string;
   brand: string;
-  images: [Image]
+  images: [Image];
 }
 
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/products/*.{jpg,webp,jpeg,png}')
-const imagesArray = Object.entries(images)
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/products/*.{jpg,webp,jpeg,png}"
+);
+const imagesArray = Object.entries(images);
 
-const imagesObj = imagesArray.reduce<Array<ImageObj>>(( acc, current )=> {
-  const name = current[0].split('/').reverse()[0]
-  const brand = name.split('_')[0]
-  const model = name.split('_')[1].split('-')[0]
+const imagesObj = imagesArray.reduce<Array<ImageObj>>((acc, current) => {
+  const name = current[0].split("/").reverse()[0];
+  const brand = name.split("_")[0];
+  const model = name.split("_")[1].split("-")[0].replaceAll("&", " ");
   const obj = {
     brand,
     model,
-    number: name.split('_')[1].split('-')[1][0],
+    number: name.split("_")[1].split("-")[1][0],
     image: {
       name: current[0],
-      data: current[1]
-    }
-  }
-  acc.push(obj)
-  
-  return acc
-},[])
-imagesObj.sort((a,b) => Number(a.number) - Number(b.number))
+      data: current[1],
+    },
+  };
+  acc.push(obj);
 
-const modelsObj = imagesObj.reduce<Array<ModelObj>>((acc, current)=>{
-  const obj = acc.find((obj)=>obj.name === current.model)
-  if(obj){
-    obj.images.push(current.image)
-  }else {
-    acc.push(
-      {
-        name: current.model,
-        brand: current.brand,
-        images: [current.image]
-      }
-    )
-  }
-  return acc
-},[])
+  return acc;
+}, []);
+imagesObj.sort((a, b) => Number(a.number) - Number(b.number));
 
+const modelsObj = imagesObj.reduce<Array<ModelObj>>((acc, current) => {
+  const obj = acc.find((obj) => obj.name === current.model);
+  if (obj) {
+    obj.images.push(current.image);
+  } else {
+    acc.push({
+      name: current.model,
+      brand: current.brand,
+      images: [current.image],
+    });
+  }
+  return acc;
+}, []);
 ---
+
 <section id="productos" class="grid place-items-center">
   <header class="w-full grid place-items-center">
-    <h3 class="text-2xl font-bold bg-amber-500 text-primary w-full p-5 text-center">Algunos de nuestros modelos</h3>
-    <p class="text-center p-5 text-secondary w-full max-w-md">Sí <strong class="text-amber-500">no ves el modelo que buscas</strong>, no te preocupes, escribenos y te ayudaremos, <strong class="text-amber-500">nosotros nos encargamos del diseño y la fabricación</strong> .</p>
+    <h3
+      class="text-2xl font-bold bg-amber-500 text-primary w-full p-5 text-center"
+    >
+      Algunos de nuestros modelos
+    </h3>
+    <p class="text-center p-5 text-secondary w-full max-w-md">
+      Sí <strong class="text-amber-500">no ves el modelo que buscas</strong>, no
+      te preocupes, escribenos y te ayudaremos, <strong class="text-amber-500"
+        >nosotros nos encargamos del diseño y la fabricación</strong
+      > .
+    </p>
   </header>
-  <div class="Products-container flex flex-wrap gap-5 p-5 sm:p-10 lg:p-20 lg:pt-5 justify-center"> 
-    {
-      modelsObj.map(product=>(
-        <ProductCard 
-        model={product}
-        />
-      ))
-    }
-    </div>
+  <div
+    class="Products-container flex flex-wrap gap-5 p-5 sm:p-10 lg:p-20 lg:pt-5 justify-center"
+  >
+    {modelsObj.map((product) => <ProductCard model={product} />)}
+  </div>
 </section>
