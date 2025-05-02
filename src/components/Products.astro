@@ -20,7 +20,7 @@ export interface ModelObj {
 }
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/products/*.{jpg,webp,jpeg,png}"
+  "/src/assets/products/*.{jpg,webp,jpeg,png,avif}"
 );
 const imagesArray = Object.entries(images);
 
